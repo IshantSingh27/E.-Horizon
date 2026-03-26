@@ -7,7 +7,7 @@ dotenv.config();
 
 const authRoutes = require('./routes/auth');
 const eventRoutes = require('./routes/events');
- // const bookingRoutes = require('./routes/bookings');
+ const bookingRoutes = require('./routes/bookings');
 
 const app = express();
 
@@ -18,10 +18,10 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', authRoutes);
  app.use('/api/events', eventRoutes);
- //app.use('/api/bookings', bookingRoutes);
+ app.use('/api/bookings', bookingRoutes);
 
 // Database Connection
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/eventora')
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/E. Horizon')
   .then(() => console.log('MongoDB Connected'))
   .catch(err => console.error('MongoDB Connection Error:', err));
 
